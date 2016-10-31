@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/flatly.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>CHARTS</title>
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon">Función</span>
+            <input type="text" class="form-control" id="f" placeholder="Ejemplo: 2*x+2" value="Math.cos(x)">
+            <span class="input-group-btn"><button class="btn btn-info" type="button" id="ver">Ver!</button></span>
+          </div>
+        </div>
+        <div class="col-xs-12"><hr></div>
+        <div id="g" class="col-xs-12"></div>
+      </div>
+    </div>
+  <script>
+    window.$ = window.jQuery = require('./js/jquery-3.1.1.min.js');
+    require('./js/data.js');
+  </script>
+  </body>
+</html>
