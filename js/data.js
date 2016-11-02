@@ -1,8 +1,9 @@
 $(document).ready(function() {
   google.charts.load('current', {'packages':['corechart']});
   google.charts.setOnLoadCallback();
-  $('#ver').click(ver);
 });
+
+$('#ver').click(ver);
 
 $(window).resize(function(event) {
   drawChart();
@@ -45,7 +46,7 @@ function ver() {
   else {
     var x=-10;
     try {
-      eval($('#f').val())
+      eval($('#f').val());
       if($.type(eval($('#f').val()))==='number') drawChart();
     } catch(e) {
       $('.row').append('<div class="alert alert-danger col-xs-12 text-center">La función está mal escrita <i class="fa fa-frown-o" aria-hidden="true"></i></div>');
