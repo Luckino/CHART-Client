@@ -9,7 +9,7 @@ $('#n').change(function() {
   $('#ver').removeAttr('disabled');
   $('#i').empty();
   for (var i = 0; i < $('#n').val(); i++) {
-    $('#i').append('<div class="col-xs-12"><div class="input-group"><span class="input-group-addon">Nombre</span><input type="text" class="form-control col-xs-3" id="v'+(i+1)+'" placeholder="Ejemplo: Y'+(i+1)+'" value="Y'+(i+1)+'"><span class="input-group-addon">Función</span><input type="text" class="form-control col-xs-9" id="f'+(i+1)+'" placeholder="Ejemplo: 2*x+2" value="Math.cos(x)*'+(i+1)+'"></div><br></div>');
+    $('#i').append('<div class="col-xs-12"><div class="input-group"><span class="input-group-addon">Nombre</span><input type="text" class="form-control col-xs-3" id="v'+(i+1)+'" placeholder="Ejemplo: Y'+(i+1)+'"><span class="input-group-addon">Función</span><input type="text" class="form-control col-xs-9" id="f'+(i+1)+'" placeholder="Ejemplo: 2*x+2"></div><br></div>');
   }
 });
 
@@ -37,7 +37,7 @@ function drawChart() {
     t+='<tr><td>'+x+'</td>';
     for (var j = 0; j < $('#n').val(); j++) {
       a[i].push(parseFloat(eval($('#f'+(j+1)).val()).toFixed(3)));
-      t+='<td>'+eval($('#f'+(j+1)).val()).toFixed(3)+'</td>';
+      t+='<td>'+eval($('#f'+(j+1)).val()).toFixed(3).replace('.',',')+'</td>';
     }
     t+='</tr>';
     x++;
@@ -76,6 +76,9 @@ function ver() {
       if($.type(eval($('#f1').val()))==='number') drawChart();
       $('#descargar,#tabla').css('display', 'inline');
       $('#descargar').attr('href', $uri);
+      $('#export').click(function() {
+        return ExcellentExport.csv(this,datatable,';');
+      });
     } catch(e) {
       $('#i').append('<div class="alert alert-danger col-xs-12 text-center">La función está mal escrita <i class="fa fa-frown-o" aria-hidden="true"></i></div>');
     }
